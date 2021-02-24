@@ -1,0 +1,1396 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="row" style="padding-top:15px;">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 ">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-green-sharp">
+                        <span data-counter="counterup" data-value="112">112</span>
+                        <small class="font-green-sharp"></small>
+                    </h3>
+                    <small>TOTAL VISITED</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-pie-chart"></i>
+                </div>
+            </div>
+            <div class="progress-info">
+                <div class="progress">
+                    <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
+                        <span class="sr-only">76% anggota</span>
+                    </span>
+                </div>
+                <div class="status">
+                    <div class="status-title"> anggota </div>
+                    <div class="status-number"> 76% </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 ">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-red-haze">
+                        <span data-counter="counterup" data-value="7271">7271</span>
+                    </h3>
+                    <small>TITLE</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-book-open"></i>
+                </div>
+            </div>
+            <div class="progress-info">
+                <div class="progress">
+                    <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
+                        <span class="sr-only">85% balitbang</span>
+                    </span>
+                </div>
+                <div class="status">
+                    <div class="status-title"> balitbang </div>
+                    <div class="status-number"> 85% </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 ">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-blue-sharp">
+                        <span data-counter="counterup" data-value="1248">1248</span>
+                    </h3>
+                    <small>DIGITAL CONTENT</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-cloud-upload"></i>
+                </div>
+            </div>
+            <div class="progress-info">
+                <div class="progress">
+                    <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
+                        <span class="sr-only">45% published</span>
+                    </span>
+                </div>
+                <div class="status">
+                    <div class="status-title"> published </div>
+                    <div class="status-number"> 45% </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 ">
+            <div class="display">
+                <div class="number">
+                    <h3 class="font-purple-soft">
+                        <span data-counter="counterup" data-value="221">221</span>
+                    </h3>
+                    <small>MEMBER</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-user"></i>
+                </div>
+            </div>
+            <div class="progress-info">
+                <div class="progress">
+                    <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
+                        <span class="sr-only">56% eksternal</span>
+                    </span>
+                </div>
+                <div class="status">
+                    <div class="status-title"> eksternal </div>
+                    <div class="status-number"> 57% </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green-steel bold uppercase">Growth in Number of Visits</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_useractive" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Total Member Visits</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_useractiveage" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green-steel bold uppercase">Growth in Number of Members</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_usergrowthmember" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Total Number of Members</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_usertotalmember" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green-steel bold uppercase">Growth in Collection Amount</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_usergrowthcollection" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Total Number of Collections</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_usertotalcollection" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 1</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey1" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 2</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey2" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 3</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey3" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 4</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey4" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 5</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey5" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 6</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey6" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 7</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey7" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 8</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey8" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <span class="caption-subject font-green-steel bold uppercase">Survey 9</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-cloud-upload"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-trash"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chart_survey9" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <i class="icon-bubbles font-dark hide"></i>
+                    <span class="caption-subject font-green-steel bold uppercase">Comments Book</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#portlet_comments_1" data-toggle="tab"> Pending </a>
+                    </li>
+                    <li>
+                        <a href="#portlet_comments_2" data-toggle="tab"> Approved </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="portlet_comments_1">
+                        <!-- BEGIN: Comments -->
+                        <div class="mt-comments">
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Rizky Lanbar</span>
+                                        <span class="mt-comment-date">03 Aug, 10:30AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Buku ini juga salah satu bast seller dan dibuatkan sebuah film. buku ini sangat bagus dan mendidik,baik dibaca oleh segala umur. ceritanya pun juga membuat banyak motifasi yang sangat dibutuhkan oleh generasi muda zaman sekarang.</div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-pending">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">M Damar Sesarrahman</span>
+                                        <span class="mt-comment-date">03 Aug, 08:30AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Buku ini wujud kepedulian penulis until mempromosikan keindahan Alam Indonesia.. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-pending">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Natasha Kim</span>
+                                        <span class="mt-comment-date">03 Aug,09:50 AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Membaca buku ini seakan beepetualang ke seliruh wilayah Indonesia yang indah. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-pending">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Sebastian Davidson</span>
+                                        <span class="mt-comment-date">03 Aug, 09:20 AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Buku ini menangkap dengan indahnya pemandangan penulisnya tentang prinsip.... </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-pending">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Comments -->
+                    </div>
+                    <div class="tab-pane" id="portlet_comments_2">
+                        <!-- BEGIN: Comments -->
+                        <div class="mt-comments">
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Retno</span>
+                                        <span class="mt-comment-date">02 Aug, 10:30AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Ini adalah buku yang mengagumkan yang dapat mengubah hidup anda. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-approved">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Fajar</span>
+                                        <span class="mt-comment-date">02 Aug, 08:30AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Kita akan menjadi lebih baik dengan menjadikan pembacaan dan pemanfaatan buku ini sebagai syarat until siapa sama pada singkat manapun dalam pelayanan masyarakat. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-approved">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Wulandari</span>
+                                        <span class="mt-comment-date">02 Aug,09:50 AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Penulis memberikan suatu filsosofi campuran sempurna dari kebijaksaan, perasaan haru, dan pengalaman praktis. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-approved">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-comment">
+                                <div class="mt-comment-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-comment-body">
+                                    <div class="mt-comment-info">
+                                        <span class="mt-comment-author">Nurul</span>
+                                        <span class="mt-comment-date">02 Aug, 09:20 AM</span>
+                                    </div>
+                                    <div class="mt-comment-text"> Ia menulis dengan penuh wawasan dan is peduli kepada manusia. </div>
+                                    <div class="mt-comment-details">
+                                        <span class="mt-comment-status mt-comment-status-approved">JUDUL: Laskar Pelangi</span>
+                                        <ul class="mt-comment-actions">
+                                            <li>
+                                                <a href="#">Quick Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Comments -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <i class=" icon-social-twitter font-dark hide"></i>
+                    <span class="caption-subject font-green-steel bold uppercase">Books</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_actions_pending" data-toggle="tab"> Most Utilized </a>
+                    </li>
+                    <li>
+                        <a href="#tab_actions_completed" data-toggle="tab"> Most Wanted </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_actions_pending">
+                        <!-- BEGIN: Actions -->
+                        <div class="mt-actions">
+                            <div class="mt-action">
+                                <div class="mt-action-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <span class="mt-action-author">Studi penetapan kriteria di bidang transportasi laut</span>
+                                                <p class="mt-action-desc">Rating: 4.8 | View: 234 | Author: Balitbang</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action">
+                                <div class="mt-action-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <span class="mt-action-author">Studi pengembangan commercial code di bidang pelayaran</span>
+                                                <p class="mt-action-desc">Rating: 4.8 | View: 224 | Author: Balitbang </p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action">
+                                <div class="mt-action-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <span class="mt-action-author">Studi pengembangan short sea shipping dalam meningkatkan kelancaran arus barang</span>
+                                                <p class="mt-action-desc">Rating: 4.7 | View: 134 | Author: Balitbang</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action">
+                                <div class="mt-action-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <span class="mt-action-author">Studi peningkatan keselamatan di perlintasan sebidang antara jalan dan jalur kereta api</span>
+                                                <p class="mt-action-desc">Rating: 4.7 | View: 124 | Author: Balitbang</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action">
+                                <div class="mt-action-img">
+                                    <img src="../assets/layouts/layout/img/avatar.png">
+                                </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <span class="mt-action-author">Studi penyusunan konsep standar di bidang prasarana pelayaran</span>
+                                                <p class="mt-action-desc">Rating: 4.6 | View: 104 | Author: Balitbang </p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Actions -->
+                    </div>
+                    <div class="tab-pane" id="tab_actions_completed">
+                        <!-- BEGIN:Completed-->
+                        @*<div class="mt-actions">
+                                <div class="mt-action">
+                                    <div class="mt-action-img">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-action-body">
+                                        <div class="mt-action-row">
+                                            <div class="mt-action-info ">
+                                                <div class="mt-action-details ">
+                                                    <span class="mt-action-author">Frank Cameron</span>
+                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-action-buttons ">
+                                                <div class="btn-group btn-group-circle">
+                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-action">
+                                    <div class="mt-action-img">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-action-body">
+                                        <div class="mt-action-row">
+                                            <div class="mt-action-info ">
+                                                <div class="mt-action-details ">
+                                                    <span class="mt-action-author">Ella Davidson </span>
+                                                    <p class="mt-action-desc">Text of the printing and typesetting industry</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-action-buttons">
+                                                <div class="btn-group btn-group-circle">
+                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-action">
+                                    <div class="mt-action-img">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-action-body">
+                                        <div class="mt-action-row">
+                                            <div class="mt-action-info ">
+                                                <div class="mt-action-details ">
+                                                    <span class="mt-action-author">Jason Dickens </span>
+                                                    <p class="mt-action-desc">Dummy text of the printing and typesetting industry</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-action-buttons ">
+                                                <div class="btn-group btn-group-circle">
+                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-action">
+                                    <div class="mt-action-img">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-action-body">
+                                        <div class="mt-action-row">
+                                            <div class="mt-action-info ">
+                                                <div class="mt-action-details ">
+                                                    <span class="mt-action-author">Jan Kim</span>
+                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-action-buttons ">
+                                                <div class="btn-group btn-group-circle">
+                                                    <button type="button" class="btn btn-outline green btn-sm">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light portlet-fit ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-directions font-green hide"></i>
+                    <span class="caption-subject font-green-steel bold uppercase"> Activities</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <a class="btn blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            Actions
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:;"> Action 1</a>
+                            </li>
+                            <li class="divider"> </li>
+                            <li>
+                                <a href="javascript:;">Action 2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Action 3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Action 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="cd-horizontal-timeline mt-timeline-horizontal loaded" data-spacing="60">
+                    <div class="timeline">
+                        <div class="events-wrapper">
+                            <div class="events" style="width: 1800px;">
+                                <ol>
+                                    <li>
+                                        <a href="#0" data-date="01/08/2020" class="border-after-red bg-after-red selected" style="left: 120px;">01 Aug</a>
+                                    </li>
+                                    <li>
+                                        <a href="#0" data-date="02/08/2020" class="border-after-red bg-after-red" style="left: 300px;">02 Aug</a>
+                                    </li>
+                                    <li>
+                                        <a href="#0" data-date="03/08/2020" class="border-after-red bg-after-red" style="left: 480px;">03 Aug</a>
+                                    </li>
+                                </ol>
+                                <span class="filling-line bg-red" aria-hidden="true" style="transform: scaleX(0.0769255);"></span>
+                            </div>
+                            <!-- .events -->
+                        </div>
+                        <!-- .events-wrapper -->
+                        <ul class="cd-timeline-navigation mt-ht-nav-icon">
+                            <li>
+                                <a href="#0" class="prev inactive btn btn-outline red md-skip">
+                                    <i class="fa fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="next btn btn-outline red md-skip">
+                                    <i class="fa fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- .cd-timeline-navigation -->
+                    </div>
+                    <!-- .timeline -->
+                    <div class="events-content">
+                        <ol>
+                            <li class="selected" data-date="01/08/2020">
+                                <div class="mt-title">
+                                    <h2 class="mt-content-title">New Application</h2>
+                                </div>
+                                <div class="mt-author">
+                                    <div class="mt-avatar">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-author-name">
+                                        <a href="javascript:;" class="font-blue-madison">Administrator</a>
+                                    </div>
+                                    <div class="mt-author-datetime font-grey-mint">01 August 2020 : 7:45 PM</div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="mt-content border-grey-steel">
+                                    <p>
+                                        Perpustakaan akan beralih media dengan meluncurkan aplikasi untuk alih media dari buku, menjadi konten digital.
+                                    </p>
+                                    <a href="javascript:;" class="btn btn-circle red btn-outline">Read More</a>
+                                    <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li data-date="02/08/2020">
+                                <div class="mt-title">
+                                    <h2 class="mt-content-title">Finalisasi Application</h2>
+                                </div>
+                                <div class="mt-author">
+                                    <div class="mt-avatar">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-author-name">
+                                        <a href="javascript:;" class="font-blue-madison">Administrator</a>
+                                    </div>
+                                    <div class="mt-author-datetime font-grey-mint">02 August 2020 : 10:15 AM</div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="mt-content border-grey-steel">
+                                    <p>
+                                        Team dari perpustakaan sudah merampungkan sistem aplikasi yang akan di implementasi dalam waktu dekat ini.
+                                    </p>
+                                    <a href="javascript:;" class="btn btn-circle btn-outline green-jungle">Download List</a>
+                                    <div class="btn-group dropup pull-right">
+                                        <button class="btn btn-circle blue-steel dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                            Actions
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li>
+                                                <a href="javascript:;">Action </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">Another action </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">Something else here </a>
+                                            </li>
+                                            <li class="divider"> </li>
+                                            <li>
+                                                <a href="javascript:;">Separated link </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li data-date="03/08/2020">
+                                <div class="mt-title">
+                                    <h2 class="mt-content-title">Blue Chambray</h2>
+                                </div>
+                                <div class="mt-author">
+                                    <div class="mt-avatar">
+                                        <img src="../assets/layouts/layout/img/avatar.png">
+                                    </div>
+                                    <div class="mt-author-name">
+                                        <a href="javascript:;" class="font-blue">Administrator</a>
+                                    </div>
+                                    <div class="mt-author-datetime font-grey-mint">03 August 2020 : 10:45 PM</div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="mt-content border-grey-steel">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur
+                                        leo eget dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat
+                                        ipsum. Ut consectetur odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo
+                                        id massa at condimentum. Praesent dignissim luctus risus sed sodales.
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus
+                                        minus veritatis qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                    </p>
+                                    <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- .events-content -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart font-dark hide"></i>
+                    <span class="caption-subject font-green-steel bold uppercase">Ticket Activity</span>
+                    <span class="caption-helper">...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">Today
+                        </label>
+                        <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Week
+                        </label>
+                        <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Month
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row number-stats margin-bottom-30">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="stat-left">
+                            <div class="stat-chart">
+                                <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                <div id="sparkline_bar"><canvas width="113" height="55" style="display: inline-block; width: 113px; height: 55px; vertical-align: top;"></canvas></div>
+                            </div>
+                            <div class="stat-number">
+                                <div class="title"> Total </div>
+                                <div class="number"> 5 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="stat-right">
+                            <div class="stat-chart">
+                                <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                <div id="sparkline_bar2"><canvas width="107" height="55" style="display: inline-block; width: 107px; height: 55px; vertical-align: top;"></canvas></div>
+                            </div>
+                            <div class="stat-number">
+                                <div class="title"> New </div>
+                                <div class="number"> 5 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th colspan="2"> MEMBER </th>
+                                <th> DATE </th>
+                                <th> CASES </th>
+                                <th> CLOSED </th>
+                                <th> RATE </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="../assets/layouts/layout/img/avatar.png">
+                                </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">Administrator</a>
+                                </td>
+                                <td> 03/08/2020 </td>
+                                <td> 5 </td>
+                                <td> 5 </td>
+                                <td>
+                                    <span class="bold theme-font">100%</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-bubble font-dark hide"></i>
+                    <span class="caption-subject font-green-steel bold uppercase">Popular Author</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            Actions
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:;"> Option 1</a>
+                            </li>
+                            <li class="divider"> </li>
+                            <li>
+                                <a href="javascript:;">Option 2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Option 3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Option 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!--begin: widget 1-1 -->
+                        <div class="mt-widget-1">
+                            <div class="mt-icon">
+                                <a href="#">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </div>
+                            <div class="mt-img">
+                                <img src="../assets/layouts/layout/img/BALITBANGHUB-LOGO-FINAL-01.png" style="width:100px">
+                            </div>
+                            <div class="mt-body">
+                                <h3 class="mt-username">Balitbanghub</h3>
+                                <p class="mt-user-title"> The Power of Transport Development. </p>
+                                @*<div class="mt-stats">
+                                        <div class="btn-group btn-group btn-group-justified">
+                                            <a href="javascript:;" class="btn font-red">
+                                                <i class="icon-bubbles"></i> 1,7k
+                                            </a>
+                                            <a href="javascript:;" class="btn font-green">
+                                                <i class="icon-social-twitter"></i> 2,6k
+                                            </a>
+                                            <a href="javascript:;" class="btn font-yellow">
+                                                <i class="icon-emoticon-smile"></i> 3,7k
+                                            </a>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <!--end: widget 1-1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 col-sm-12">
+        <div class="portlet light portlet-fit ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="caption-subject font-green-steel bold uppercase"></i>
+                    <span class="caption-subject font-green-steel bold uppercase"> Popular Book</span>
+                    <span class="caption-helper">default option...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn blue btn-outline btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">Actions
+                        </label>
+                        <label class="btn  blue btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Tools
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mt-widget-4">
+                            <div class="mt-img-container">
+                                <img src="../assets/pages/img/background/34.jpg">
+                            </div>
+                            <div class="mt-container bg-purple-opacity">
+                                <div class="mt-head-title"> Website Revamp &amp; Deployment </div>
+                                <div class="mt-body-icons">
+                                    <a href="#">
+                                        <i class=" icon-pencil"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-map"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-trash"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-footer-button">
+                                    <button type="button" class="btn btn-circle btn-danger btn-sm">Balitbanghub</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mt-widget-4">
+                            <div class="mt-img-container">
+                                <img src="../assets/pages/img/background/46.jpg">
+                            </div>
+                            <div class="mt-container bg-green-opacity">
+                                <div class="mt-head-title"> CRM Development &amp; Deployment </div>
+                                <div class="mt-body-icons">
+                                    <a href="#">
+                                        <i class=" icon-social-twitter"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-bubbles"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-bell"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-footer-button">
+                                    <button type="button" class="btn btn-circle blue-ebonyclay btn-sm">Balitbanghub</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mt-widget-4">
+                            <div class="mt-img-container">
+                                <img src="../assets/pages/img/background/37.jpg">
+                            </div>
+                            <div class="mt-container bg-dark-opacity">
+                                <div class="mt-head-title"> Marketing Campaigns </div>
+                                <div class="mt-body-icons">
+                                    <a href="#">
+                                        <i class=" icon-bubbles"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-map"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class=" icon-cup"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-footer-button">
+                                    <button type="button" class="btn btn-circle btn-success btn-sm">Balitbanghub</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

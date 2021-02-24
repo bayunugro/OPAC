@@ -1,0 +1,100 @@
+﻿@* @model IEnumerable<OPAC.Models.Book> *@
+
+@{
+    var bookCoverPath = "../Content/cover/";
+    var bookCover = "";
+    var bookAuthorID = 0;
+    var bookFolder = "";
+}
+
+<section class="category-filter section-padding">
+    <div class="container">
+        <h3>New Arrival</h3>
+        <div class="row">
+            <div id="category-filter">
+                <ul class="category-list">
+
+                    @{
+                        if (ViewBag.LoadingNewArrival != null)
+                        {
+                            if (ViewBag.NewArrival != null)
+                            {
+
+                                var countItem = 0;
+
+                                foreach (var item in ViewBag.NewArrivalData)
+                                {
+
+                                    if (countItem <= 3)
+                                    {
+
+                                        bookAuthorID = item.GetType().GetProperty("BookAuthorID").GetValue(item, null);
+                                        bookFolder = item.GetType().GetProperty("FileFolder").GetValue(item, null);
+
+                                        if (bookFolder == null || bookFolder == "")
+                                        {
+                                            bookCoverPath = "../Content/cover/";
+                                        }
+                                        else
+                                        {
+                                            bookCoverPath = "http://elibrary.dephub.go.id/uploaded_files/sampul_koleksi/original/" + bookFolder + "/";
+                                        }
+
+                                        bookCover = bookCoverPath + item.GetType().GetProperty("BookCover").GetValue(item, null);
+
+                                        <li class="category-item adults">
+                                            <figure>
+                                                <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.GetType().GetProperty("BookID").GetValue(item, null)">
+                                                    <img src="@bookCover" />
+                                                </a>
+                                                <figcaption class="bg-green">
+                                                    <div class="diamond">
+                                                        <i class="book"></i>
+                                                    </div>
+                                                    <div class="info-block">
+                                                        <h4>
+                                                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.GetType().GetProperty("BookID").GetValue(item, null)">
+                                                                @item.GetType().GetProperty("BookTitle").GetValue(item, null)
+                                                            </a>
+                                                        </h4>
+                                                        <span class="author">
+                                                            <strong>Author:</strong>
+                                                            <a asp-action="Author" asp-controller="Home" asp-route-id="@bookAuthorID">@item.GetType().GetProperty("BookAuthor").GetValue(item, null)</a>
+                                                        </span>
+                                                        @*<span class="author"><strong>ISBN:</strong> 9781581573268</span>*@
+                                                        <div class="rating">
+                                                            @item.GetType().GetProperty("BookRating").GetValue(item, null) <i class="fa fa-star" style="color:gold"></i>
+                                                            @*<span>☆</span>*@
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a class="btn default btn-lg" asp-controller="Home" asp-action="AllBooks" asp-route-id="1">
+                                                See All
+                                            </a>
+                                        </li>
+                                    }
+
+                                    countItem++;
+                                }
+                            }
+                            else
+                            {
+                                <li class="alert alert-danger" style="padding-left:15px;">No available books!</li>
+                            }
+                        }
+                        else
+                        {
+                            <li style="padding-left:15px;"><i class="fa fa-spin fa-spinner"></i> Please wait while we do something...</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

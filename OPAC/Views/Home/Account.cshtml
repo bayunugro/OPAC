@@ -1,0 +1,399 @@
+@model OPAC.ViewModels.AccountViewModel
+
+@{
+    ViewData["Title"] = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var userProfilePic = "../Content/profpic/" + (Model.user.Photo ?? "default.png");
+    var isChangePassword = ViewBag.IsChangePassword;
+    var profileActiveTab = "";
+    var profileActiveContent = "";
+    var passwordActiveTab = "";
+    var passwordActiveContent = "";
+    var isAdmin = 1;
+    var isSuperAdmin = 0;
+    var isFromSocmed = ViewBag.IsFromSocmed;
+
+    if (isChangePassword == 1) {
+
+        profileActiveTab = "";
+        profileActiveContent = "";
+        passwordActiveTab = "active";
+        passwordActiveContent = "show active";
+    }
+    else {
+
+        profileActiveTab = "active";
+        profileActiveContent = "show active";
+        passwordActiveTab = "";
+        passwordActiveContent = "";
+    }
+}
+
+@{
+    if (ViewBag.ResultCode != null) {
+
+        if (ViewBag.ResultCode == 1) {
+
+            <div class="div-alert">
+                <div style="padding: 5px;">
+                    <div id="inner-message" class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        @ViewBag.ResultMessage
+                    </div>
+                </div>
+            </div>
+        }
+        else if (ViewBag.ResultCode == 0) {
+
+            <div class="div-alert">
+                <div style="padding: 5px;">
+                    <div id="inner-message" class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        @ViewBag.ResultMessage
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css" integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg==" crossorigin="anonymous" />
+
+<div class="container" style="padding: 15px;">
+    @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Url.Content("~/assets/images/logo-dephub.png")" style="width:75px; height: 75px;">
+        </div>
+        <div class="col-md-6 pull-right" style="text-align: right;">
+            <img src="@Url.Content("~/assets/images/logo-litbang.png")" style="width:90px; height: 90px;">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div id="col_account" class="col-md-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link @profileActiveTab" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</a>
+                <a class="nav-link @passwordActiveTab" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">Change Password</a>
+                @{
+                    if (Model.Level == isSuperAdmin || Model.Level == isAdmin) { //admin or super admin
+                        
+                        <a asp-action="Index" asp-controller="Admin" class="nav-link">Go To Admin Page</a>
+                    }
+                }
+                @* <a asp-action="LogOut" asp-controller="Login" class="nav-link" onclick="signOut();">Log Out</a> *@
+                @{
+                    if (!isFromSocmed) {
+
+                        <a href="#" class="nav-link" onclick="signOut();">Log Out</a>
+                    }
+                }
+            </div>
+            <div class="g-signin2" data-onsuccess="onSignIn" style="display: none;"></div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade @profileActiveContent" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="card_profilePicture" class="card">
+                                <h4 class="card-header bold">
+                                    Profile Picture
+                                </h4>
+                                <div class="card-body">
+                                    <div class="col-md-12" style="text-align: center; padding: 20px;">
+                                        <img id="img_profile" class="rounded-circle" src="@userProfilePic" width="140" height="140">
+                                    </div>
+
+                                    <div class="col-md-12" style="text-align: center; padding: 20px;">
+                                        <form asp-action="Account" enctype="multipart/form-data">
+                                            <input type="hidden" asp-for="user.ID" value="@Model.user.ID" />
+                                            <input type="hidden" asp-for="user.Name" value="@Model.user.Name" />
+                                            <input type="hidden" asp-for="user.NIP" value="@Model.user.NIP" />
+                                            <input type="hidden" asp-for="user.Email" value="@Model.user.Email" />
+                                            <input type="hidden" asp-for="user.Password" value="@Model.user.Password" />
+                                            <input type="hidden" asp-for="user.Creator" value="@Model.user.Creator" />
+                                            <input type="hidden" asp-for="user.CreatedDate" value="@Model.user.CreatedDate" />
+                                            <input type="hidden" asp-for="user.NIK" value="@Model.user.NIK" />
+                                            <input type="hidden" asp-for="user.Phone" value="@Model.user.Phone" />
+                                            <input type="hidden" asp-for="user.Pekerjaan" value="-" />
+                                            <input type="hidden" asp-for="user.Alamat" value="-" />
+                                            <input type="hidden" asp-for="user.PendidikanTerakhir" value="-" />
+
+                                            <input type="hidden" asp-for="Code" value="@Model.Code" />
+                                            <input type="hidden" asp-for="Level" value="@Model.Level" />
+                                            <input type="hidden" asp-for="Type" value="@Model.Type" />
+                                            <input id="img_profile_base64" type="hidden" asp-for="userViewModel.PhotoBase64" />
+
+                                            @* <input type="hidden" asp-for="changePasswordViewModel.ID" value="0" />
+        <input type="hidden" asp-for="changePasswordViewModel.Password" value="12345678" />
+        <input type="hidden" asp-for="changePasswordViewModel.NewPassword" value="12345678" />
+        <input type="hidden" asp-for="changePasswordViewModel.ConfirmNewPassword" value="12345678" /> *@
+
+                                            <a href="#img_profile" onclick="$('#inp_imgProfile').click();">Change Profile Picture</a>
+                                            <p><i>* max = 10 MB</i></p>
+                                            <input id="inp_imgProfile" type="file" asp-for="userViewModel.Photo" accept="image/*" onchange="cropImgFunc(event);" style="visibility: hidden;">
+
+                                            <button id="btn_changeProfileImg" type="submit" style="visibility: hidden;"></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="card_accountDetail" class="col-md-7">
+                            <div class="card">
+                                <h4 class="card-header bold">
+                                    Account Detail
+                                </h4>
+                                <div class="card-body">
+                                    <form asp-action="Account">
+                                        <input type="hidden" asp-for="user.ID" value="@Model.user.ID" />
+                                        <input type="hidden" asp-for="user.Password" value="@Model.user.Password" />
+                                        <input type="hidden" asp-for="user.Photo" value="@Model.user.Photo" />
+                                        <input type="hidden" asp-for="user.Creator" value="@Model.user.Creator" />
+                                        <input type="hidden" asp-for="user.CreatedDate" value="@Model.user.CreatedDate" />
+
+                                        <input type="hidden" asp-for="Code" value="@Model.Code" />
+                                        <input type="hidden" asp-for="Level" value="@Model.Level" />
+                                        <input type="hidden" asp-for="Type" value="@Model.Type" />
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.NIK">@Html.DisplayNameFor(model => model.user.NIK)</label>
+                                            <input asp-for="user.NIK" type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.NIK)">
+                                            <span asp-validation-for="user.NIK" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.Name">@Html.DisplayNameFor(model => model.user.Name)</label>
+                                            <input asp-for="user.Name" type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.Name)" value="@Model.user.Name">
+                                            <span asp-validation-for="user.Name" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="inp_userName">@Html.DisplayNameFor(model => model.user.NIP)</label>
+                                            <input asp-for="user.NIP" type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.NIP)" value="@Model.user.NIP">
+                                            <span asp-validation-for="user.NIP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="inp_email">@Html.DisplayNameFor(model => model.user.Email)</label>
+                                            <input asp-for="user.Email" type="email" class="form-control" id="inp_email" value="@Model.user.Email">
+                                            <span asp-validation-for="user.Email" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.Phone">@Html.DisplayNameFor(model => model.user.Phone)</label>
+                                            <input asp-for="user.Phone" type="text" class="form-control" value="@Model.user.Phone">
+                                            <span asp-validation-for="user.Phone" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.Alamat">@Html.DisplayNameFor(model => model.user.Alamat)</label>
+                                            <textarea asp-for="user.Alamat" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.Alamat)">
+                                                @Model.user.Alamat
+                                            </textarea>
+                                            <span asp-validation-for="user.Alamat" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.PendidikanTerakhir">@Html.DisplayNameFor(model => model.user.PendidikanTerakhir)</label>
+                                            <input asp-for="user.PendidikanTerakhir" type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.PendidikanTerakhir)" value="@Model.user.PendidikanTerakhir">
+                                            <span asp-validation-for="user.PendidikanTerakhir" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="user.Pekerjaan">@Html.DisplayNameFor(model => model.user.Pekerjaan)</label>
+                                            <input asp-for="user.Pekerjaan" type="text" class="form-control" placeholder="@Html.DisplayNameFor(model => model.user.Pekerjaan)" value="@Model.user.Pekerjaan">
+                                            <span asp-validation-for="user.Pekerjaan" class="text-danger"></span>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary pull-right">Save Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade @passwordActiveContent" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <h4 class="card-header bold">
+                                    Change Password
+                                </h4>
+                                <div class="card-body">
+                                    <form asp-action="ChangePassword">
+                                        <input type="hidden" asp-for="changePasswordViewModel.ID" value="@Model.user.ID" />
+                                        <div class="mb-3">
+                                            <label asp-for="changePasswordViewModel.Password">Current Password</label>
+                                            <input asp-for="changePasswordViewModel.Password" type="password" class="form-control" placeholder="Current Password">
+                                            <span asp-validation-for="changePasswordViewModel.Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="changePasswordViewModel.NewPassword">New Password</label>
+                                            <input asp-for="changePasswordViewModel.NewPassword" type="password" class="form-control" placeholder="New Password">
+                                            <span asp-validation-for="changePasswordViewModel.NewPassword" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="changePasswordViewModel.ConfirmNewPassword">Confirm New Password</label>
+                                            <input asp-for="changePasswordViewModel.ConfirmNewPassword" type="password" class="form-control" placeholder="Confirm New Password">
+                                            <span asp-validation-for="changePasswordViewModel.ConfirmNewPassword" class="text-danger"></span>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary pull-right">Save Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="modal show" id="modal_editImage" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 580px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Image</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="preImg rounded-circle" id="preImg" style="display: none;">
+                        <div class="result" id="inputImg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="confirmImage();" type="button" class="btn btn-outline-success" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js" integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g==" crossorigin="anonymous"></script>
+
+@* Account *@
+<script type="text/javascript">
+    function cropImgFunc(event) {
+
+        $("#modal_editImage").modal("show");
+
+        let result = document.querySelector('#inputImg'),
+            imgPreview = document.querySelector('#preImg');
+        if (event.target.files.length) {
+            // start file reader
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                if (event.target.result) {
+                    // create new image
+                    let img = document.createElement('img');
+                    img.id = 'image';
+                    img.src = event.target.result;
+                    img.width = 544;
+                    img.height = 370;
+                    // clean result before
+                    result.innerHTML = '';
+                    // append new image
+                    result.appendChild(img);
+                    // init cropper
+                    cropper = new Cropper(img, {
+                        viewMode: 1,
+                        dragMode: 'move',
+                        aspectRatio: 1,
+                        autoCropArea: 0.68,
+                        minContainerWidth: 544,
+                        minContainerHeight: 370,
+                        center: false,
+                        zoomOnWheel: false,
+                        zoomOnTouch: false,
+                        cropBoxMovable: false,
+                        cropBoxResizable: false,
+                        guides: false,
+                        ready: function (event) {
+                            this.cropper = cropper;
+                        },
+                        crop: function (event) {
+                            let imgSrc = this.cropper.getCroppedCanvas({
+                                width: 170,
+                                height: 170// input value
+                            }).toDataURL("image/png");
+                            imgPreview.src = imgSrc;
+                        }
+                    });
+
+                }
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        //$("#inp_imgProfile").val("");
+    }
+
+    function confirmImage() {
+
+        var preImgSrc = $("#preImg").attr("src");
+        $("#img_profile").attr("src", preImgSrc);
+        $("#img_profile_base64").val(preImgSrc);
+
+        $("#btn_changeProfileImg").click(); //trigger submit button
+    }
+</script>
+
+<script type="text/javascript">
+
+    $(".div-alert").fadeOut(alertDuration);
+
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+
+        var url = "@Url.Action("LogOut", "Login")";
+
+        $.ajax({  
+            type: "POST",  
+            url: url,  
+            success: function (data) {  
+                
+                location.reload();
+            }
+        });
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                $('#img_profile').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+
+            //$("#btn_changeProfileImg").click(); //trigger submit button
+        }
+    }
+
+    $("#inp_imgProfile").change(function() {
+        readURL(this);
+    });
+
+    $("#card_profilePicture").height($("#card_accountDetail").height());
+</script>

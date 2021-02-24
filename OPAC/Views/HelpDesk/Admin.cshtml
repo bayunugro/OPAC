@@ -1,0 +1,378 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12" style="padding-top:15px">
+    <!-- BEGIN TODO SIDEBAR -->
+    <div class="todo-ui">
+        <div class="todo-sidebar">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content">
+                        <span class="caption-subject font-green-sharp bold uppercase">LIBRARY </span>
+                        <span class="caption-helper visible-sm-inline-block visible-xs-inline-block">click to view project list</span>
+                    </div>
+                    @*<div class="actions">
+                        <div class="btn-group">
+                            <a class="btn green btn-circle btn-outline btn-sm todo-projects-config" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-settings"></i> &nbsp;
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;"> New Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Pending
+                                        <span class="badge badge-danger"> 4 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Completed
+                                        <span class="badge badge-success"> 12 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Overdue
+                                        <span class="badge badge-warning"> 9 </span>
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="javascript:;"> Archived Projects </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>*@
+                </div>
+                <div class="portlet-body todo-project-list-content collapse" style="height: auto;">
+                    <div class="todo-project-list">
+                        <ul class="nav nav-stacked">
+                            <li class="active">
+                                <a href="javascript:;">
+                                    <span class="badge badge-success"> 5 </span> Balitbanghub
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content-tags">
+                        <span class="caption-subject font-red bold uppercase">TAGS </span>
+                        <span class="caption-helper visible-sm-inline-block visible-xs-inline-block">click to view</span>
+                    </div>
+                    @*<div class="actions">
+                        <div class="actions">
+                            <a class="btn btn-circle grey-salsa btn-outline btn-sm" href="javascript:;">
+                                <i class="fa fa-plus"></i> Add
+                            </a>
+                        </div>
+                    </div>*@
+                </div>
+                <div class="portlet-body todo-project-list-content todo-project-list-content-tags collapse" style="height: auto;">
+                    <div class="todo-project-list">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="javascript:;">
+                                    <span class="badge badge-danger"> 0 </span> Pending
+                                </a>
+                            </li>
+                            @*<li>
+                                <a href="javascript:;">
+                                    <span class="badge badge-info"> 2 </span> Completed
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <span class="badge badge-success"> 14 </span> In Progress
+                                </a>
+                            </li>*@
+                            <li>
+                                <a href="javascript:;">
+                                    <span class="badge badge-warning"> 5 </span> Closed
+                                </a>
+                            </li>
+                            @*<li>
+                                <a href="javascript:;">
+                                    <span class="badge badge-info"> 2 </span> Delivered
+                                </a>
+                            </li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END TODO SIDEBAR -->
+        <!-- BEGIN TODO CONTENT -->
+        <div class="todo-content">
+            <div class="portlet light ">
+                <!-- PROJECT HEAD -->
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bar-chart font-green-sharp hide"></i>
+                        <span class="caption-helper">Library Tasks:</span> &nbsp;
+                        <span class="caption-subject font-green-sharp bold uppercase">BALITBANG</span>
+                    </div>
+                    @*<div class="actions">
+                        <div class="btn-group">
+                            <a class="btn green btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                MANAGE
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;"> New Task </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Pending
+                                        <span class="badge badge-danger"> 4 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Completed
+                                        <span class="badge badge-success"> 12 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        Overdue
+                                        <span class="badge badge-warning"> 9 </span>
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="javascript:;"> Delete Project </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>*@
+                </div>
+                <!-- end PROJECT HEAD -->
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-4">
+                            <div class="todo-tasklist">
+                                <div class="todo-tasklist-item todo-tasklist-item-border-green">
+                                    <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                    <div class="todo-tasklist-item-title"> Masalah tidak bisa login </div>
+                                    <div class="todo-tasklist-item-text"> Saya tidak bisa login menggunakan akun google ataupun menggunakan akun facebook </div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i> 3 Aug 2020
+                                        </span>
+                                        <span class="todo-tasklist-badge badge badge-roundless">Closed</span>
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-item todo-tasklist-item-border-red">
+                                    <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                    <div class="todo-tasklist-item-title"> Tidak dapat membuka eBook, hanya 5 halaman saja yang terbuka </div>
+                                    <div class="todo-tasklist-item-text"> Saya tidak bisa login melihat semua halaman pada ebook yang saya buka, kenapa ya? </div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i> 3 Aug 2020
+                                        </span>
+                                        <span class="todo-tasklist-badge badge badge-roundless">Closed</span>
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-item todo-tasklist-item-border-blue">
+                                    <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                    <div class="todo-tasklist-item-title"> Buku tentang "Studi pengembangan commercial code di bidang pelayaran" tidak ditemukan </div>
+                                    <div class="todo-tasklist-item-text"> Buku tentang "Studi pengembangan commercial code di bidang pelayaran" tidak ditemukan, kenapa ya? </div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i> 2 Aug 2020
+                                        </span>
+                                        <span class="todo-tasklist-badge badge badge-roundless">Closed</span>
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-item todo-tasklist-item-border-purple">
+                                    <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                    <div class="todo-tasklist-item-title"> Apakah bisa datang untuk meminjam buku </div>
+                                    <div class="todo-tasklist-item-text"> Apakah bisa datang untuk meminjam buku di masa pandemi seperti ini? </div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i> 2 Aug 2020
+                                        </span>
+                                        <span class="todo-tasklist-badge badge badge-roundless">Closed</span>
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-item todo-tasklist-item-border-yellow">
+                                    <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                    <div class="todo-tasklist-item-title"> Saya mengadakan penelitian, apakah saya boleh datang ke perpustakaan? </div>
+                                    <div class="todo-tasklist-item-text"> Saya mengadakan penelitian, apakah saya boleh datang ke perpustakaan? </div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i> 1 Aug 2020
+                                        </span>
+                                        <span class="todo-tasklist-badge badge badge-roundless">Closed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="todo-tasklist-devider"> </div>
+                        <div class="col-md-7 col-sm-8">
+                            <form action="#" class="form-horizontal">
+                                <!-- TASK HEAD -->
+                                <div class="form">
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="todo-taskbody-user">
+                                                <img class="todo-userpic pull-left" src="../assets/layouts/layout/img/avatar.png" width="50px" height="50px">
+                                                <span class="todo-username pull-left">Guest</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <div class="todo-taskbody-date pull-right">
+                                                <button type="button" class="todo-username-btn btn btn-circle btn-default btn-sm">&nbsp; Closed &nbsp;</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TASK HEAD -->
+                                    <!-- TASK TITLE -->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control todo-taskbody-tasktitle" value="Masalah tidak bisa login" placeholder="Task Title..." disabled>
+                                        </div>
+                                    </div>
+                                    <!-- TASK DESC -->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <textarea class="form-control todo-taskbody-taskdesc" rows="8" placeholder="Task Description..." disabled>Saya tidak bisa login menggunakan akun google ataupun menggunakan akun facebook</textarea>
+                                        </div>
+                                    </div>
+                                    <!-- END TASK DESC -->
+                                    <!-- TASK TAGS -->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <select class="form-control todo-taskbody-tags" tabindex="-1" aria-hidden="true">
+                                                <option value="Pending">Pending</option>
+                                                <option value="Closed">Closed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- TASK TAGS -->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <h4>
+                                                Attach File
+                                                <a class="btn btn-circle btn-default btn-sm" href="javascrip:;">+ Add</a>
+                                            </h4>
+                                            <p class="todo-task-file" style="margin-bottom:10px">
+                                                <i class="fa fa-file-o todo-grey"></i> <a>screenshoot_1.jpg</a>
+                                                <i class="fa fa-times todo-remove-file"></i>
+                                            </p>
+                                            <p class="todo-task-file" style="margin-bottom:10px">
+                                                <i class="fa fa-file-o todo-grey"></i> <a>screenshoot_2.jpg</a>
+                                                <i class="fa fa-times todo-remove-file"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- TASK TAGS -->
+                                    <div class="form-actions right todo-form-actions">
+                                        <button class="btn btn-circle btn-sm green">Save Changes</button>
+                                        <button class="btn btn-circle btn-sm btn-default">Cancel</button>
+                                    </div>
+                                </div>
+                                <div class="tabbable-line">
+                                    <ul class="nav nav-tabs ">
+                                        <li class="active">
+                                            <a href="#tab_1" data-toggle="tab"> Comments </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_2" data-toggle="tab"> History </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_1">
+                                            <!-- TASK COMMENTS -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <ul class="media-list">
+                                                        <li class="media">
+                                                            <a class="pull-left" href="javascript:;">
+                                                                <img class="todo-userpic" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                                            </a>
+                                                            <div class="media-body todo-comment">
+                                                                <button type="button" class="todo-comment-btn btn btn-circle btn-default btn-sm">&nbsp; Reply &nbsp;</button>
+                                                                <p class="todo-comment-head">
+                                                                    <span class="todo-comment-username">Administrator</span> &nbsp;
+                                                                    <span class="todo-comment-date">03 Aug 2020 at 1:11pm</span>
+                                                                </p>
+                                                                <p class="todo-text-color">
+                                                                    Mohon dapat dicoba kembali, terdapat beberapa kesalahan di sitem kami. Terima kasih.
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="media">
+                                                            <a class="pull-left" href="javascript:;">
+                                                                <img class="todo-userpic" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                                            </a>
+                                                            <div class="media-body todo-comment">
+                                                                <button type="button" class="todo-comment-btn btn btn-circle btn-default btn-sm">&nbsp; Reply &nbsp;</button>
+                                                                <p class="todo-comment-head">
+                                                                    <span class="todo-comment-username">Guest</span> &nbsp;
+                                                                    <span class="todo-comment-date">03 Aug 2020 at 1:30pm</span>
+                                                                </p>
+                                                                <p class="todo-text-color">
+                                                                    Baik, Terima kasih banyak.
+                                                                    <br>
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- END TASK COMMENTS -->
+                                            <!-- TASK COMMENT FORM -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <ul class="media-list">
+                                                        <li class="media">
+                                                            <a class="pull-left" href="javascript:;">
+                                                                <img class="todo-userpic" src="../assets/layouts/layout/img/avatar.png" width="27px" height="27px">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <textarea class="form-control todo-taskbody-taskdesc" rows="4" placeholder="Type comment..."></textarea>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="pull-right btn btn-sm btn-circle green"> &nbsp; Submit &nbsp; </button>
+                                                </div>
+                                            </div>
+                                            <!-- END TASK COMMENT FORM -->
+                                        </div>
+                                        <div class="tab-pane" id="tab_2">
+                                            <ul class="todo-task-history">
+                                                <li>
+                                                    <div class="todo-task-history-date"> 03 Aug, 2020 at 11:35am </div>
+                                                    <div class="todo-task-history-desc"> Task created </div>
+                                                </li>
+                                                <li>
+                                                    <div class="todo-task-history-date"> 03 Aug, 2020 at 1:30pm </div>
+                                                    <div class="todo-task-history-desc"> Task closed by "Administrator" </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END TODO CONTENT -->
+    </div>
+</div>
+<!-- END PAGE CONTENT-->

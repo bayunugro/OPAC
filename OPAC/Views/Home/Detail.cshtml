@@ -1,0 +1,311 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var bookFolder = ViewBag.DetailBooksData.GetType().GetProperty("FileFolder").GetValue(ViewBag.DetailBooksData, null);
+    var bookCoverPath = "http://elibrary.dephub.go.id/uploaded_files/sampul_koleksi/original/" + bookFolder + "/";
+
+    var bookTitle = ViewBag.DetailBooksData.GetType().GetProperty("BookTitle").GetValue(ViewBag.DetailBooksData, null);
+    var bookCover = bookCoverPath + ViewBag.DetailBooksData.GetType().GetProperty("BookCover").GetValue(ViewBag.DetailBooksData, null);
+    var bookID = ViewBag.DetailBooksData.GetType().GetProperty("BookID").GetValue(ViewBag.DetailBooksData, null);
+    var bookTransID = ViewBag.DetailBooksData.GetType().GetProperty("BookTransID").GetValue(ViewBag.DetailBooksData, null);
+    var bookFileURL = ViewBag.DetailBooksData.GetType().GetProperty("BookFileURL").GetValue(ViewBag.DetailBooksData, null);
+    var userID = ViewBag.DetailBooksData.GetType().GetProperty("UserID").GetValue(ViewBag.DetailBooksData, null); ;
+    var bookTransFlag = ViewBag.DetailBooksData.GetType().GetProperty("BookTransFlag").GetValue(ViewBag.DetailBooksData, null);
+
+    var bookAuthor = ViewBag.DetailBooksData.GetType().GetProperty("BookAuthor").GetValue(ViewBag.DetailBooksData, null);
+    var bookAuthorID = ViewBag.DetailBooksData.GetType().GetProperty("BookAuthorID").GetValue(ViewBag.DetailBooksData, null);
+
+    var isPublished = ViewBag.DetailBooksData.GetType().GetProperty("BookIsPublished").GetValue(ViewBag.DetailBooksData, null);
+    var bookFlag = ViewBag.DetailBooksData.GetType().GetProperty("BookFlag").GetValue(ViewBag.DetailBooksData, null);
+    bool isReadable = false;
+
+    bookFileURL = "../inlislite/uploaded_files/dokumen_isi/" + bookFolder + "/" + bookFileURL;
+
+    var publisher = ViewBag.DetailBooksData.GetType().GetProperty("Publisher").GetValue(ViewBag.DetailBooksData, null);
+    var publishLoc = ViewBag.DetailBooksData.GetType().GetProperty("PublishLocation").GetValue(ViewBag.DetailBooksData, null);
+    var publishYear = ViewBag.DetailBooksData.GetType().GetProperty("PublishYear").GetValue(ViewBag.DetailBooksData, null);
+    var physDesc = ViewBag.DetailBooksData.GetType().GetProperty("PhysDesc").GetValue(ViewBag.DetailBooksData, null);
+    var callNumber = ViewBag.DetailBooksData.GetType().GetProperty("CallNumber").GetValue(ViewBag.DetailBooksData, null);
+    var language = ViewBag.DetailBooksData.GetType().GetProperty("Language").GetValue(ViewBag.DetailBooksData, null);
+
+    isReadable = true;
+
+    var addToMyList_html = "";
+    if (bookTransFlag == 0)
+    {
+        addToMyList_html = "ADD TO MY LIST";
+    }
+    else
+    {
+        addToMyList_html = "REMOVE FROM MY LIST";
+    }
+}
+
+<input id="hidden_bookTransFlag" type="hidden" value="@bookTransFlag">
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+            <div class="booksmedia-detail-main">
+                <div class="container">
+                    <div class="booksmedia-detail-box">
+                        <div class="detailed-box">
+
+                            <div id="div_alert">
+                                @* by js *@
+                            </div>
+
+                            <div class="col-xs-12 col-sm-5 col-md-3">
+                                <div class="post-thumbnail">
+                                    <img src="@Url.Content(bookCover)" style="margin-bottom: 15px;  border: 14px solid #1F2833;" alt="Book Image">
+
+                                    @if (isReadable)
+                                    {
+
+                                        @using (Html.BeginForm("Read", "Home", FormMethod.Post))
+                                        {
+                                            <input type="submit" class="btn btn-dark-gray col-lg-12 col-md-6 col-xs-12" style="margin-bottom: 4px;" value="READ NOW" />
+                                            <input type="hidden" name="bookID" value="@bookID" />
+                                            <input type="hidden" name="bookTransID" value="@bookTransID" />
+                                            <input type="hidden" name="bookFileURL" value="@bookFileURL" />
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div style="text-align: center;">
+                                            <i>This book can be borrowed from <a href="http://dephub.go.id/" target="_blank">here</a></i>
+                                        </div>
+                                    }
+
+                                    @{
+                                        if (userID != 0)
+                                        {
+                                            if (isPublished)
+                                            {
+                                                <a id="btn_addToMyList" type="button" class="btn btn-dark-gray col-lg-12 col-md-6 col-xs-12" style="margin-bottom: 15px;">
+                                                    @addToMyList_html
+                                                </a>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-md-9">
+                                <div class="post-center-content">
+                                    <h3 style="font-size:inherit;">
+                                        @bookTitle
+                                    </h3>
+                                    <br>
+                                    <p><strong>Jenis Bahan:</strong> @bookFolder</p>
+                                    <p>
+                                        <strong>Author:</strong>
+                                        <a asp-action="Author" asp-controller="Home" asp-route-id="@bookAuthorID">
+                                            @bookAuthor
+                                        </a>
+                                    </p>
+                                    <p><strong>Publisher:</strong> @publisher</p>
+                                    <p><strong>Nomor Panggil:</strong> @callNumber</p>
+                                    <p><strong>Bahasa</strong> @language</p>
+                                    <p>
+                                        <strong>Hashtag:</strong>
+                                        @foreach (var item in ViewBag.DetailBookTags)
+                                        {
+                                            <a asp-controller="Home" asp-action="AllBooks" asp-route-tagID="@item.GetType().GetProperty("ID").GetValue(item, null)">
+                                                <span>#@item.GetType().GetProperty("Description").GetValue(item, null)</span>
+                                            </a>
+                                            <span>&nbsp;</span>
+                                        }
+                                    </p>
+                                    <p><strong>Rating:</strong> </p>
+                                    <br><br>
+                                    <div class="actions">
+                                        <ul>
+                                            <li>
+                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="" data-original-title="Facebook">
+                                                    <i class="fa fa-facebook-square"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="" data-original-title="Twitter">
+                                                    <i class="fa fa-twitter-square"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p>
+                            <strong>Summary: </strong>
+                            @ViewBag.DetailBooksData.GetType().GetProperty("BookDesc").GetValue(ViewBag.DetailBooksData, null)
+                        </p>
+
+                        <div class="table-tabs" id="div_review">
+                            @* loadReview() *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="modal" id="modal_cite" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Sitasi</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea id="txta_citeContent" class="form-control" disabled="disabled"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    var dataHref = window.location.href;
+    dataHref = dataHref.replace("localhost", "elibrary.dephub.go.id");
+    $("#div_fbShare").html('<div class="fb-share-button" data-href="' + dataHref + '" data-layout="button_count"></div>');
+</script>
+
+<script type="text/javascript">
+
+    var urlUserReview = "@Url.Action("UserReview", "Home")";
+
+    function loadReview () {
+
+        $("#div_review").html('<p style="padding-left:15px;"><i class="fa fa-spin fa-spinner"></i> Please wait while we do something...</p>');
+
+        var bookID = @bookID;
+
+        $.ajax({
+            type: "POST",
+            url: urlUserReview,
+            data: {
+                bookID: bookID
+            },//JSON.stringify(BookTransaction),
+            success: function (data) {
+
+                $('#div_review').html(data);
+            }
+        });
+    }
+    loadReview();
+
+    $("#btn_addToMyList").click(function () {
+
+        var userId = @userID;
+        var bookID = @bookID;
+        var flag = $("#hidden_bookTransFlag").val();
+        var btn_addToMyList_html = "@addToMyList_html";
+        var alert_html = "";
+
+        /* var BookTransaction = new Object();
+        BookTransaction.ID = id;
+        BookTransaction.Flag = 1; */
+
+        var url = "@Url.Action("AddToMyList", "Home")";
+
+        if (flag == 0) {
+
+            flag = 1;
+            btn_addToMyList_html = "REMOVE FROM MY LIST";
+            alert_html = "Added to my list !";
+        }
+        else {
+
+            flag = 0;
+            btn_addToMyList_html = "ADD TO MY LIST";
+            alert_html = "Removed from my list !";
+        }
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                UserID: userId,
+                BookID: bookID,
+                Flag: flag
+            },//JSON.stringify(BookTransaction),
+            dataType: "json",
+            success: function (data) {
+                //debugger;
+                if (data.status == 1) {
+
+                    $("#div_alert").html('<div class="alert alert-success" role="alert">' +
+                                            alert_html +
+                                        '</div>');
+                    $("#div_alert").fadeIn(500);
+
+                    setTimeout(function() {
+                        $("#div_alert").fadeOut(500);
+                    }, 3000);
+
+                    $("#hidden_bookTransFlag").val(flag);
+                    $("#btn_addToMyList").html(btn_addToMyList_html);
+                }
+            },
+            error: function (ex) {
+                alert("Error while updating data");
+            }
+        });
+        return false;
+    });
+
+    function resizeTextarea(id) {
+        $("#" + id).height("auto");
+        $("#" + id).height(document.getElementById(id).scrollHeight);
+    }
+
+    $(".a_cite").click(function () {
+
+        var citeMode = $(this).text();
+
+        var author = "@bookAuthor";
+        var title = "@bookTitle";
+        var publisher = "@publisher";
+        var publishLoc = "@publishLoc";
+        var publishYear = "@publishYear";
+        var citeStr = "";
+
+        if (citeMode == "IEEE") {
+
+            citeStr = author + ", " + title + ", " + publishLoc + ": " + publisher + ", " + publishYear + ".";
+        }
+        else {
+
+            citeStr = author + ", (" + publishYear + "), " + title + ", " + publishLoc + ": " + publisher + ".";
+        }
+
+        $("#txta_citeContent").val(citeStr);
+
+        setTimeout(function () {
+
+            resizeTextarea("txta_citeContent");
+        }, 500);
+
+        $("#modal_cite").modal();
+    })
+</script>  
